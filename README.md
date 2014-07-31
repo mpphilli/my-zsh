@@ -1,7 +1,7 @@
 my-zsh
 ======
 
-Git Setup:
+####Git Setup:
 ```
 git config --global user.name “Mike P”
 git config --global user.email “mpphilli@users.noreply.github.com"
@@ -9,7 +9,8 @@ git config --global user.email “mpphilli@users.noreply.github.com"
 Add SSH key to Github 
 https://help.github.com/articles/generating-ssh-keys
 
-My zsh configuration. 
+
+####My zsh configuration:
 Clone this into ~/my-zsh, and then symlink the zshrc.local file to ~/.zshrc.local:
 
 ```
