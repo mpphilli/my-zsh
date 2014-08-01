@@ -14,9 +14,9 @@ https://help.github.com/articles/generating-ssh-keys
 Clone this into ~/my-zsh, and then symlink the zshrc.local file to ~/.zshrc.local:
 
 ```
-git clone https://github.com/mgdm/zsh-antigen.git ~/.zsh-antigen
+git clone https://github.com/mpphilli/my-zsh.git ~/my-zsh
 cd
-ln -s .zsh-antigen/zshrc .zshrc
+ln -s my-zsh/zshrc.local .zshrc.local
 ```
 
 Then pull the GRML zsh config into ~/.zshrc
