@@ -1,0 +1,36 @@
+ZSHA_BASE=$HOME/my-zsh
+source $ZSHA_BASE/zshrc.mychanges
+source $ZSHA_BASE/antigen/antigen.zsh
+
+antigen-use oh-my-zsh
+antigen-bundle git
+
+if [ "$OSTYPE"="darwin13.0" ]; then
+	antigen-bundle osx
+fi
+
+antigen-bundle zsh-users/zsh-syntax-highlighting
+antigen-bundle zsh-users/zsh-history-substring-search
+#antigen-bundle $ZSHA_BASE/bundles/git-completion
+#antigen-bundle $ZSHA_BASE/bundles/stv
+#antigen-bundle $ZSHA_BASE/bundles/virtualenv
+
+#antigen-theme $ZSHA_BASE/themes/mgdm/mgdm.zsh-theme
+
+antigen-apply
+
+# set PATH so it includes user's private bin if it exists
+if [ -d "$HOME/bin" ] ; then
+    PATH="$HOME/bin:$PATH"
+fi
+export PATH=/usr/local/bin:$PATH
+# De-dup path
+typeset -U PATH
+export EDITOR=vim
+
+if [ -f /opt/homebrew/bin/src-hilite-lesspipe.sh ]; then
+export LESSOPEN="| /opt/homebrew/bin/src-hilite-lesspipe.sh %s"
+export LESS=' -R '
+fi
+
+setprompt

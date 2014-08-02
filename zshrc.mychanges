@@ -1,0 +1,124 @@
+autoload edit-command-line
+zle -N edit-command-line
+bindkey '^Xe' edit-command-line
+
+#k# Put the current command line into a \kbd{sudo} call
+bindkey "^Xs" sudo-command-line
+
+globalias()
+{
+  emulate -L zsh
+  setopt extendedglob
+  local MATCH
+  LBUFFER="${LBUFFER:s/;;/.,/}"
+  zleiab
+}
+
+# just type '...' to get '../..'
+rationalise-dot() {
+local MATCH
+if [[ $LBUFFER =~ '(^|/| |     |'$'\n''|\||;|&)\.\.$' ]]; then
+  LBUFFER+=/
+  zle self-insert
+  zle self-insert
+else
+  zle self-insert
+fi
+}
+zle -N rationalise-dot
+bindkey . rationalise-dot
+# without this, typing a . aborts incremental history search
+bindkey -M isearch . self-insert
+
+
+## change default abbreviation key
+zle -N globalias && bindkey ";;" globalias
+
+## recompile zsh files
+src ()
+{
+autoload -U zrecompile
+[ -f ~/.zshrc ] && zrecompile -p ~/.zshrc
+[ -f ~/.zshenv ] && zrecompile -p ~/.zshenv
+[ -f ~/.zcompdump ] && zrecompile -p ~/.zcompdump
+[ -f ~/.zlogin ] && zrecompile -p ~/.zlogin
+[ -f ~/.zlogout ] && zrecompile -p ~/.zlogout
+[ -f ~/.zprofile ] && zrecompile -p ~/.zprofile
+[ -f ~/.zshrc.local ] && zrecompile -p ~/.zshrc.local
+[ -f ~/.zshrc.prompt ] && zrecompile -p ~/.zshrc.prompt
+zrecompile -p ~/.zshrc.d/*
+}
+
+## use the vi navigation keys (hjkl) besides cursor keys in menu completion
+bindkey -M menuselect 'h' vi-backward-char        # left
+bindkey -M menuselect 'k' vi-up-line-or-history   # up
+bindkey -M menuselect 'l' vi-forward-char         # right
+bindkey -M menuselect 'j' vi-down-line-or-history # bottom
+
+
+bindkey "^f"  history-incremental-search-backward
+
+
+## ctrl-s will no longer freeze the terminal.
+stty erase "^?"
+
+## Set a search path for the cd builtin
+cdpath=(.. ~)
+
+## My Aliases
+
+# Fast change of directories:
+  alias ..='cd ..'
+  alias ...='cd ../..'
+  alias ....='cd ../../..'
+  alias .....='cd ../../../..'
+  alias ......='cd ../../../../..'
+  alias .......='cd ../../../../../..'
+  alias -g ...='../..'
+  alias -g ....='../../..'
+  alias -g .....='../../../..'
+
+## global aliases:
+alias -g BG='& exit'
+alias -g C='|wc -l'
+alias -g G='|grep'
+alias -g H='|head'
+alias -g Hl=' --help |& less -r'
+alias -g K='|keep'
+alias -g L='|less'
+alias -g LL='|& less -r'
+alias -g M='|most'
+alias -g N='&>/dev/null'
+alias -g R='| tr A-z N-za-m'
+alias -g SL='| sort | less'
+alias -g S='| sort'
+alias -g T='|tail'
+alias -g V='| vim -'
+
+
+alias grep='grep --color=auto'
+alias l='ls -hl --color'
+alias la='ls -Ah --color=auto'
+alias ll='ls -Ahl --color'
+#alias ls='ls -h --color=auto'
+alias h='history 10'
+alias hh='history 50'
+alias hhh='history 100'
+alias m='more'
+alias f='find -iname'
+alias md='mkdir'
+#alias sc='screen -h 10000 -Rd'
+alias sc='byobu'
+alias q='exit'
+alias cl='clear'
+alias llog="$PAGER /var/log/syslog"   # take a look at the syslog
+alias tlog="tailf /var/log/syslog"    # follow the syslog
+
+# set PATH so it includes user's private bin if it exists
+if [ -d "$HOME/bin" ] ; then
+   PATH="$HOME/bin:$PATH"
+fi
+
+xsource $ZSHA_BASE/zshrc.prompt $ZSHA_BASE/zshrc.d/*
+
+## END OF FILE #################################################################

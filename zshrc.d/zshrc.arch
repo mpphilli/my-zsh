@@ -1,0 +1,34 @@
+# Configure pacmatic to use pacman-color
+#export pacman_program="pacman-color"
+export pacdiff_program="diffpac"
+
+# Use pacmatic instead of pacman
+alias pacman='pacmatic'
+
+# Synchronize with repositories before upgrading packages that are out of date on the local system.
+alias pacsyu='sudo pacmatic -Syu && packer -Syu --auronly'        
+
+# Install specific package(s) from the repositories
+alias pacs='sudo pacmatic -S'           
+
+# Remove the specified package(s), retaining its configuration(s) and required dependencies
+#alias pacr='sudo pacmatic -R'           
+
+# Remove the specified package(s), its configuration(s) and unneeded dependencies
+alias pacr='sudo pacmatic -Rns'        
+
+# Display information about a given package in the repositories
+alias pacsi='pacmatic -Si'              
+
+# Search for package(s) in the repositories
+alias pacss='pacmatic -Ss'             
+
+# Display information about a given package in the local database
+alias pacqi='pacmatic -Qi'              
+
+# Search for package(s) in the local database
+alias pacqs='pacmatic -Qs'             
+
+alias llog="$PAGER /var/log/messages.log"   # take a look at the syslog
+alias tlog="tailf /var/log/messages.log"    # follow the syslog
+
