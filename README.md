@@ -15,6 +15,7 @@ Clone this into ~/my-zsh, and then symlink the zshrc.local file to ~/.zshrc.loca
 
 ```
 git clone git@github.com:mpphilli/my-zsh.git ~/my-zsh
+cd ~/my-zsh
 git submodule init
 git submodule update
 cd
