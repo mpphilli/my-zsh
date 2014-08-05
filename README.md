@@ -1,6 +1,11 @@
 my-zsh
 ======
 
+Pull the GRML zsh config into ~/.zshrc
+```
+wget -O ~/.zshrc http://git.grml.org/f/grml-etc-core/etc/zsh/zshrc
+```
+
 ####Git Setup:
 ```
 git config --global user.name "Mike P"
@@ -11,7 +16,7 @@ https://help.github.com/articles/generating-ssh-keys
 
 
 ####My zsh configuration:
-Clone this into ~/my-zsh, and then symlink the zshrc.local file to ~/.zshrc.local:
+Clone my zsh config into ~/my-zsh, and then symlink the zshrc.local file to ~/.zshrc.local:
 
 ```
 git clone git@github.com:mpphilli/my-zsh.git ~/my-zsh
@@ -19,13 +24,9 @@ cd ~/my-zsh
 git submodule init
 git submodule update
 cd
-ln -s my-zsh/zshrc.local .zshrc.local
+ln -s ~/my-zsh/zshrc.local ~/.zshrc.local
 ```
 
-Then pull the GRML zsh config into ~/.zshrc
-```
-wget -O .zshrc http://git.grml.org/f/grml-etc-core/etc/zsh/zshrc
-```
 
 ####Git Commands
 git help <command> - read about a specific subcommand or concept
