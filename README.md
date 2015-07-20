@@ -29,18 +29,19 @@ ln -s ~/my-zsh/zshrc.local ~/.zshrc.local
 
 
 ####Git Commands
-git help <command> - read about a specific subcommand or concept
-git status - Show the working tree status
-git add - Add file contents to the index
-git rm - Remove files from the working tree and from the index
-git mv - Move or rename a file, a directory, or a symlink
-git diff - Show changes between commits, commit and working tree, etc
-git commit - Record changes to the repository
-       -a - Tell the command to automatically stage files that have been modified and deleted, but new files you have not told Git about are not affected.
-git push - Update remote refs along with associated objects
-git log - Show commit logs  http://git-scm.com/book/en/Git-Basics-Viewing-the-Commit-History
-git fetch origin - fetches any new work that has been pushed to that server since you cloned (or last fetched from) it
-git pull - fetches data from the server you originally cloned from and automatically tries to merge it into the code you’re currently working on
+- git help <command> - read about a specific subcommand or concept
+- git status - Show the working tree status
+- git add - Add file contents to the index
+- git rm - Remove files from the working tree and from the index  
+- git mv - Move or rename a file, a directory, or a symlink  
+- git diff - Show changes between commits, commit and working tree, etc  
+- git commit - Record changes to the repository  
+    - -a - Tell the command to automatically stage files that have been modified and deleted, but new files you have not told Git about are not affected.  
+- git push - Update remote refs along with associated objects  
+- git log - Show commit logs  http://git-scm.com/book/en/Git-Basics-Viewing-the-Commit-History  
+- git fetch origin - fetches any new work that has been pushed to that server since you cloned (or last fetched from) it  
+- git pull - fetches data from the server you originally cloned from and automatically tries to merge it into the code you’re currently working on  
 
-- Submodules
-git submodule update - Update the registered submodules
+**Submodules**  
+- git submodule update - tells Git that you want your submodules to each check out the commit already specified in the index of the superproject
+- git submodule foreach git pull origin master - update your submodules to the latest commit available from their remote
