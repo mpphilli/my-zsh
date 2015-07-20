@@ -1,5 +1,4 @@
 ZSHA_BASE=$HOME/my-zsh
-source $ZSHA_BASE/zshrc.mychanges
 source $ZSHA_BASE/antigen/antigen.zsh
 
 antigen-use oh-my-zsh
@@ -33,4 +32,5 @@ export LESSOPEN="| /opt/homebrew/bin/src-hilite-lesspipe.sh %s"
 export LESS=' -R '
 fi
 
+source $ZSHA_BASE/zshrc.mychanges
 setprompt

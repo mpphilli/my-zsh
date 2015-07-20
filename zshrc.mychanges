@@ -60,7 +60,7 @@ bindkey "^f"  history-incremental-search-backward
 
 
 ## ctrl-s will no longer freeze the terminal.
-stty erase "^?"
+/bin/stty erase "^?"
 
 ## Set a search path for the cd builtin
 cdpath=(.. ~)
