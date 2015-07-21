@@ -4,7 +4,8 @@ source $ZSHA_BASE/antigen/antigen.zsh
 antigen-use oh-my-zsh
 antigen-bundle git
 
-if [ "$OSTYPE"="darwin13.0" ]; then
+#if [ "$OSTYPE"="darwin13.0" ]; then
+if [[ "${OSTYPE#*darwin}" != "$OSTYPE" ]] ; then
 	antigen-bundle osx
 fi
 
