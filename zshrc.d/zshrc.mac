@@ -1,7 +1,12 @@
 if [[ "${OSTYPE#*darwin}" != "$OSTYPE" ]] ; then
    
-
-
+if  `which multitail | grep -q multitail`  ; then
+   alias tailf="mulititail"
+   alias tlog="multitail /var/log/system.log"
+else
+   alias tailf="tail -f"
+   alias tlog="tail -f /var/log/system.log"
+fi
 
 
 
