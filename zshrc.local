@@ -2,18 +2,28 @@ ZSHA_BASE=$HOME/my-zsh
 source $ZSHA_BASE/antigen/antigen.zsh
 
 antigen-use oh-my-zsh
-antigen-bundle git
 
 #if [ "$OSTYPE"="darwin13.0" ]; then
 if [[ "${OSTYPE#*darwin}" != "$OSTYPE" ]] ; then
 	antigen-bundle osx
 fi
 
-antigen-bundle zsh-users/zsh-syntax-highlighting
-antigen-bundle zsh-users/zsh-history-substring-search
-#antigen-bundle $ZSHA_BASE/bundles/git-completion
-#antigen-bundle $ZSHA_BASE/bundles/stv
-#antigen-bundle $ZSHA_BASE/bundles/virtualenv
+antigen bundles <<EOBUNDLES
+
+# Guess what to install when running an unknown command.
+command-not-found
+
+git
+zsh-users/zsh-completions src
+zsh-users/zsh-syntax-highlighting
+zsh-users/zsh-history-substring-search
+#$ZSHA_BASE/bundles/git-completion
+#$ZSHA_BASE/bundles/stv
+#$ZSHA_BASE/bundles/virtualenv
+felixr/docker-zsh-completion
+
+#End of Bundles
+EOBUNDLES
 
 #antigen-theme $ZSHA_BASE/themes/mgdm/mgdm.zsh-theme
 
