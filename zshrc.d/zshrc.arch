@@ -1,34 +1,33 @@
-# Configure pacmatic to use pacman-color
-#export pacman_program="pacman-color"
 export pacdiff_program="diffpac"
 
 # Use pacmatic instead of pacman
-alias pacman='pacmatic'
+#alias pacman='pacmatic'
 
 # Synchronize with repositories before upgrading packages that are out of date on the local system.
-alias pacsyu='sudo pacmatic -Syu && packer -Syu --auronly'        
+#alias pacsyu='sudo pacmatic -Syu && packer -Syu --auronly'        
+alias pacsyu='pacaur -Syu'        
 
 # Install specific package(s) from the repositories
-alias pacs='sudo pacmatic -S'           
+alias pacs='pacaur -S'           
 
 # Remove the specified package(s), retaining its configuration(s) and required dependencies
-#alias pacr='sudo pacmatic -R'           
+#alias pacr='pacaur -R'           
 
 # Remove the specified package(s), its configuration(s) and unneeded dependencies
-alias pacr='sudo pacmatic -Rns'        
+alias pacr='pacaur -Rns'        
 
 # Display information about a given package in the repositories
-alias pacsi='pacmatic -Si'              
+alias pacsi='pacaur -Si'              
 
 # Search for package(s) in the repositories
-alias pacss='pacmatic -Ss'             
+alias pacss='pacaur -Ss'             
 
 # Display information about a given package in the local database
-alias pacqi='pacmatic -Qi'              
+alias pacqi='pacaur -Qi'              
 
 # Search for package(s) in the local database
-alias pacqs='pacmatic -Qs'             
+alias pacqs='pacaur -Qs'             
 
-alias llog="$PAGER /var/log/messages.log"   # take a look at the syslog
-alias tlog="tailf /var/log/messages.log"    # follow the syslog
+alias llog="journalctl -e"     # take a look at the syslog
+alias tlog="journalctl -fe"    # follow the syslog
 
