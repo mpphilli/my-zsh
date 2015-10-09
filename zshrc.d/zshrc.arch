@@ -1,3 +1,5 @@
+if `/usr/bin/grep -q Arch /etc/issue` ; then
+
 export pacdiff_program="diffpac"
 
 # Use pacmatic instead of pacman
@@ -31,3 +33,4 @@ alias pacqs='pacaur -Qs'
 alias llog="journalctl -e"     # take a look at the syslog
 alias tlog="journalctl -fe"    # follow the syslog
 
+fi

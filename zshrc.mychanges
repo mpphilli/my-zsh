@@ -65,6 +65,34 @@ bindkey "^f"  history-incremental-search-backward
 ## Set a search path for the cd builtin
 cdpath=(.. ~)
 
+## Setup Less
+if [ -f ~/bin/lesspipe.sh ]; then
+   export LESSOPEN="| ~/bin/lesspipe.sh %s"
+   export LESS=' -R '
+fi
+
+## grep newest file
+elog()
+{
+   mygrepstring=
+   while [ $# != 0 ]; do
+      mygrepstring="$mygrepstring -e $1"
+      shift
+   done
+   egrep -i `echo $mygrepstring` *(D.om[1,1])
+}
+
+## grep second newest file
+elog()
+{
+   mygrepstring=
+   while [ $# != 0 ]; do
+      mygrepstring="$mygrepstring -e $1"
+      shift
+   done
+   egrep -i `echo $mygrepstring` *(D.om[2,2])
+}
+
 ## My Aliases
 
 # Fast change of directories:
@@ -113,7 +141,15 @@ alias q='exit'
 alias cl='clear'
 alias llog="$PAGER /var/log/syslog"   # take a look at the syslog
 alias tlog="tailf /var/log/syslog"    # follow the syslog
-
+#alias elog="mygrep *(D.om[1,1])"
+#alias eelog="mygrep *(D.om[2,2])"
+alias ttlog="tail *(D.om[1,1])"
+if  `which multitail | /usr/bin/grep -q multitail`  ; then
+    alias mtail="multitail"
+    alias ttlog="multitail *(D.om[1,1])"
+else
+    alias ttlog="tail -f *(D.om[1,1])"
+fi
 if [[ "$TERM" != dumb ]]; then
     #a1# List files with colors (\kbd{ls \ldots})
     alias ls="command ls ${ls_options:+${ls_options[*]}}"
