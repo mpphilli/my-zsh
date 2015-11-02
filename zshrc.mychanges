@@ -83,7 +83,7 @@ elog()
 }
 
 ## grep second newest file
-elog()
+eelog()
 {
    mygrepstring=
    while [ $# != 0 ]; do
@@ -139,16 +139,17 @@ alias md='mkdir'
 alias sc='byobu'
 alias q='exit'
 alias cl='clear'
+alias tmuxlock='tmux setw allow-rename off; tmux rename-window'
+alias tmuxunlock='tmux setw allow-rename on'
 alias llog="$PAGER /var/log/syslog"   # take a look at the syslog
 alias tlog="tailf /var/log/syslog"    # follow the syslog
-#alias elog="mygrep *(D.om[1,1])"
-#alias eelog="mygrep *(D.om[2,2])"
-alias ttlog="tail *(D.om[1,1])"
+
 if  `which multitail | /usr/bin/grep -q multitail`  ; then
+    alias tailf="multitail"
     alias mtail="multitail"
     alias ttlog="multitail *(D.om[1,1])"
 else
-    alias ttlog="tail -f *(D.om[1,1])"
+    alias ttlog="tailf *(D.om[1,1])"
 fi
 if [[ "$TERM" != dumb ]]; then
     #a1# List files with colors (\kbd{ls \ldots})
