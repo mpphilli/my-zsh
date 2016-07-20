@@ -146,7 +146,8 @@ alias tlog="tailf /var/log/syslog"    # follow the syslog
 alias lessl="less *(D.om[1,1])"
 alias lessll="less *(D.om[2,2])"
 
-if  `which multitail | /usr/bin/grep -q multitail`  ; then
+#if  `which multitail | /usr/bin/grep -q multitail`  ; then
+if which multitail &> /dev/null; then
     alias tailf="multitail"
     alias mtail="multitail"
     alias taill="multitail *(D.om[1,1])"
