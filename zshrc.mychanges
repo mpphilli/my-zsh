@@ -72,7 +72,7 @@ if [ -f ~/bin/lesspipe.sh ]; then
 fi
 
 ## grep newest file
-elog()
+grepl()
 {
    mygrepstring=
    while [ $# != 0 ]; do
@@ -83,7 +83,7 @@ elog()
 }
 
 ## grep second newest file
-eelog()
+grepll()
 {
    mygrepstring=
    while [ $# != 0 ]; do
@@ -109,7 +109,7 @@ eelog()
 ## global aliases:
 alias -g BG='& exit'
 alias -g C='|wc -l'
-alias -g G='|grep'
+alias -g G='|grep -i'
 alias -g H='|head'
 alias -g Hl=' --help |& less -r'
 alias -g K='|keep'
@@ -143,13 +143,15 @@ alias tmuxlock='tmux setw allow-rename off; tmux rename-window'
 alias tmuxunlock='tmux setw allow-rename on'
 alias llog="$PAGER /var/log/syslog"   # take a look at the syslog
 alias tlog="tailf /var/log/syslog"    # follow the syslog
+alias lessl="less *(D.om[1,1])"
+alias lessll="less *(D.om[2,2])"
 
 if  `which multitail | /usr/bin/grep -q multitail`  ; then
     alias tailf="multitail"
     alias mtail="multitail"
-    alias ttlog="multitail *(D.om[1,1])"
+    alias taill="multitail *(D.om[1,1])"
 else
-    alias ttlog="tailf *(D.om[1,1])"
+    alias taill="tailf *(D.om[1,1])"
 fi
 if [[ "$TERM" != dumb ]]; then
     #a1# List files with colors (\kbd{ls \ldots})
