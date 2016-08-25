@@ -1,4 +1,4 @@
-if `command grep -q Arch /etc/issue` ; then
+if `/usr/bin/grep -q Arch /etc/issue &> /dev/null` ; then
 
 export pacdiff_program="diffpac"
 
