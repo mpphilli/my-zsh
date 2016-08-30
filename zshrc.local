@@ -34,8 +34,6 @@ if [ -d "$HOME/bin" ] ; then
     PATH="$HOME/bin:$PATH"
 fi
 export PATH=/usr/local/bin:$PATH
-# De-dup path
-typeset -U PATH
 export EDITOR=vim
 
 if [ -f /opt/homebrew/bin/src-hilite-lesspipe.sh ]; then
@@ -45,3 +43,6 @@ fi
 
 source $ZSHA_BASE/zshrc.mychanges
 setprompt
+
+# De-dup path
+PATH="$(echo $PATH | perl -e 'print join(":", grep { not $seen{$_}++ } split(/:/, scalar <>))')"
