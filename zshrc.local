@@ -45,3 +45,7 @@ fi
 
 source $ZSHA_BASE/zshrc.mychanges
 setprompt
+
+alias grep="/bin/grep $GREP_OPTIONS"
+unset GREP_OPTIONS
+

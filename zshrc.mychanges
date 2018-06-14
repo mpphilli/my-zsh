@@ -177,6 +177,8 @@ if [ -d "$HOME/bin" ] ; then
    PATH="$HOME/bin:$PATH"
 fi
 
+alias vidir="command vidir -v"
+
 xsource $ZSHA_BASE/zshrc.prompt $ZSHA_BASE/zshrc.d/*
 
 ## END OF FILE #################################################################
