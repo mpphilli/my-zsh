@@ -1,7 +1,7 @@
 ZSHA_BASE=$HOME/my-zsh
 source $ZSHA_BASE/antigen/antigen.zsh
 
-antigen-use oh-my-zsh
+antigen use oh-my-zsh
 
 #if [ "$OSTYPE"="darwin13.0" ]; then
 if [[ "${OSTYPE#*darwin}" != "$OSTYPE" ]] ; then
@@ -27,7 +27,7 @@ EOBUNDLES
 
 #antigen-theme $ZSHA_BASE/themes/mgdm/mgdm.zsh-theme
 
-antigen-apply
+antigen apply
 
 # set PATH so it includes user's private bin if it exists
 if [ -d "$HOME/bin" ] ; then
