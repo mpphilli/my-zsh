@@ -46,7 +46,7 @@ autoload -U zrecompile
 [ -f ~/.zprofile ] && zrecompile -p ~/.zprofile
 [ -f ~/.zshrc.local ] && zrecompile -p ~/.zshrc.local
 [ -f ~/.zshrc.prompt ] && zrecompile -p ~/.zshrc.prompt
-zrecompile -p ~/.zshrc.d/*
+zrecompile -p ~/my-zsh/.zshrc.d/*
 }
 
 ## use the vi navigation keys (hjkl) besides cursor keys in menu completion
@@ -138,7 +138,7 @@ alias md='mkdir'
 #alias sc='screen -h 10000 -Rd'
 alias sc='byobu'
 alias q='exit'
-alias cl='clear'
+alias cl='/usr/bin/clear'
 alias tmuxlock='tmux setw allow-rename off; tmux rename-window'
 alias tmuxunlock='tmux setw allow-rename on'
 alias llog="$PAGER /var/log/syslog"   # take a look at the syslog
