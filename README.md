@@ -6,7 +6,7 @@ Pull the GRML zsh config into ~/.zshrc
 wget -O ~/.zshrc http://git.grml.org/f/grml-etc-core/etc/zsh/zshrc
 ```
 
-####Git Setup:
+#### Git Setup:
 ```
 git config --global user.name "Mike P"
 git config --global user.email "mpphilli@users.noreply.github.com"
@@ -15,7 +15,7 @@ Add SSH key to Github
 https://help.github.com/articles/generating-ssh-keys
 
 
-####My zsh configuration:
+#### My zsh configuration:
 Clone my zsh config into ~/my-zsh, and then symlink the zshrc.local file to ~/.zshrc.local:
 
 ```
@@ -28,7 +28,7 @@ ln -s ~/my-zsh/zshrc.local ~/.zshrc.local
 ```
 
 
-####Git Commands
+#### Git Commands
 - git help <command> - read about a specific subcommand or concept
 - git status - Show the working tree status
 - git add - Add file contents to the index

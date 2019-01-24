@@ -1,7 +1,7 @@
 ZSHA_BASE=$HOME/my-zsh
 source $ZSHA_BASE/antigen/antigen.zsh
 
-antigen-use oh-my-zsh
+antigen use oh-my-zsh
 
 #if [ "$OSTYPE"="darwin13.0" ]; then
 if [[ "${OSTYPE#*darwin}" != "$OSTYPE" ]] ; then
@@ -27,15 +27,13 @@ EOBUNDLES
 
 #antigen-theme $ZSHA_BASE/themes/mgdm/mgdm.zsh-theme
 
-antigen-apply
+antigen apply
 
 # set PATH so it includes user's private bin if it exists
 if [ -d "$HOME/bin" ] ; then
     PATH="$HOME/bin:$PATH"
 fi
 export PATH=/usr/local/bin:$PATH
-# De-dup path
-typeset -U PATH
 export EDITOR=vim
 
 if [ -f /opt/homebrew/bin/src-hilite-lesspipe.sh ]; then
@@ -46,6 +44,11 @@ fi
 source $ZSHA_BASE/zshrc.mychanges
 setprompt
 
+<<<<<<< HEAD
 #alias grep="/bin/grep $GREP_OPTIONS"
 unset GREP_OPTIONS
 
+=======
+# De-dup path
+PATH="$(echo $PATH | perl -e 'print join(":", grep { not $seen{$_}++ } split(/:/, scalar <>))')"
+>>>>>>> 782aa309aa78fd71996c8b9d925cd59f3390e766
