@@ -44,11 +44,8 @@ fi
 source $ZSHA_BASE/zshrc.mychanges
 setprompt
 
-<<<<<<< HEAD
 #alias grep="/bin/grep $GREP_OPTIONS"
 unset GREP_OPTIONS
 
-=======
 # De-dup path
 PATH="$(echo $PATH | perl -e 'print join(":", grep { not $seen{$_}++ } split(/:/, scalar <>))')"
->>>>>>> 782aa309aa78fd71996c8b9d925cd59f3390e766
